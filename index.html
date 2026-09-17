@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Management Dashboard</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <h1>Employee Management System</h1>
+    <div class="clock">
+      <span id="todayDate">Today: --</span>
+      <span id="currentTime">Time: --</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="controls">
+
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="Search Employee...">
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <div class="dept-row" id="deptButtons">
+        <button class="dept-btn active" data-dept="All">All</button>
+        <button class="dept-btn" data-dept="IT">IT</button>
+        <button class="dept-btn" data-dept="HR">HR</button>
+        <button class="dept-btn" data-dept="Finance">Finance</button>
+        <button class="dept-btn" data-dept="Marketing">Marketing</button>
+      </div>
+
+    </section>
+
+    <p id="loadingMessage">Loading employees...</p>
+
+    <section class="stat-grid">
+      <div class="stat-card">
+        <p class="stat-label">Total Employees</p>
+        <p class="stat-value" id="employeeCount">0</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Total Salary</p>
+        <p class="stat-value" id="totalSalary">₹0</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Average Salary</p>
+        <p class="stat-value" id="avgSalary">₹0</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Highest Salary</p>
+        <p class="stat-value" id="highestSalaryValue">₹0</p>
+      </div>
+    </section>
+
+    <section class="highlight-banner">
+      <h3>Highest Paid Employee</h3>
+      <p id="highestPaidInfo">Loading...</p>
+    </section>
+
+    <div class="sort-row">
+      <span>Sort Employees:</span>
+      <select id="sortSelect">
+        <option value="default">Default</option>
+        <option value="name-asc">Name (A → Z)</option>
+        <option value="name-desc">Name (Z → A)</option>
+        <option value="age-asc">Age (Low → High)</option>
+        <option value="age-desc">Age (High → Low)</option>
+        <option value="salary-asc">Salary (Low → High)</option>
+        <option value="salary-desc">Salary (High → Low)</option>
+      </select>
+    </div>
+
+    <section class="card-grid" id="cardGrid">
+    </section>
+
+    <section class="add-form-section">
+      <h2>Add Employee</h2>
+
+      <form id="addEmployeeForm">
+        <div class="form-grid">
+          <label>
+            Name
+            <input type="text" id="empName" placeholder="Enter employee name">
+          </label>
+          <label>
+            Age
+            <input type="number" id="empAge" placeholder="Enter age">
+          </label>
+          <label>
+            Email
+            <input type="text" id="empEmail" placeholder="Enter email">
+          </label>
+          <label>
+            Phone Number
+            <input type="text" id="empPhone" placeholder="Enter phone number">
+          </label>
+          <label>
+            Department
+            <select id="empDept">
+              <option value="">Select department</option>
+              <option value="IT">IT</option>
+              <option value="HR">HR</option>
+              <option value="Finance">Finance</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+          </label>
+          <label>
+            Salary
+            <input type="number" id="empSalary" placeholder="Enter salary">
+          </label>
+        </div>
+
+        <p id="formError" class="form-error"></p>
+
+        <button type="submit" id="addEmployeeBtn">Add Employee</button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
